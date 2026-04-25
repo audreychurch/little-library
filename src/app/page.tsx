@@ -58,13 +58,13 @@ export default function Home() {
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "10px", padding: "0 2rem" }}>
         {[
-          { tag: "Mystery / Thriller", title: "A whodunit that makes you feel like a detective", desc: "Building a case in your head by page three.", bg: "#1C1A17", tagBg: "#3A3830", tagColor: "#C8C3B8", titleColor: "#FAF8F4", descColor: "#C8C3B8", tall: true },
+          { tag: "Mystery / Thriller", title: "A whodunit that makes you feel like a detective", desc: "Building a case in your head by page three.", bg: "#1C1A17", tagBg: "#3A3830", tagColor: "#C8C3B8", titleColor: "#FAF8F4", descColor: "#C8C3B8", tall: true, href: "/collections/whodunit" }, 
           { tag: "Non-fiction", title: "Books that will change the way you think", desc: "Ideas that stick with you.", bg: "#EEF7E8", tagBg: "#C4E6A8", tagColor: "#2A5A10", titleColor: "#1E4210", descColor: "#2A5A10", tall: false },
           { tag: "Romance", title: "Slow burns that are worth the wait", desc: "The tension is the whole point.", bg: "#FBF0EE", tagBg: "#F4CBBF", tagColor: "#7A2E1A", titleColor: "#5A1F10", descColor: "#7A3020", tall: false },
           { tag: "Fiction", title: "Stories that will leave you inspired", desc: "Finish the last page. Feel things.", bg: "#F5F0E8", tagBg: "#E0D5BF", tagColor: "#5A4A30", titleColor: "#3A2E1A", descColor: "#5A4A30", tall: false },
           { tag: "Self-help", title: "Self-help that does not feel like self-help", desc: "Snuck up on you. Changed something.", bg: "#EEF3FB", tagBg: "#C0D4F0", tagColor: "#1A3A6A", titleColor: "#102A54", descColor: "#1A3A6A", tall: false },
         ].map((card) => (
-          <div key={card.title} style={{ background: card.bg, borderRadius: "12px", padding: "1.3rem 1.4rem 1.1rem", cursor: "pointer", gridRow: card.tall ? "span 2" : "span 1", border: "0.5px solid transparent" }}>
+          <a key={card.title} href={(card as any).href ?? "#"} style={{ background: card.bg, borderRadius: "12px", padding: "1.3rem 1.4rem 1.1rem", cursor: "pointer", gridRow: card.tall ? "span 2" : "span 1", border: "0.5px solid transparent", textDecoration: "none", display: "block" }}>
             <span style={{ display: "inline-block", fontSize: "10px", letterSpacing: "0.08em", textTransform: "uppercase", padding: "3px 8px", borderRadius: "999px", background: card.tagBg, color: card.tagColor, marginBottom: "0.75rem" }}>
               {card.tag}
             </span>
@@ -74,7 +74,7 @@ export default function Home() {
             <p style={{ fontSize: "12px", lineHeight: 1.6, color: card.descColor, opacity: 0.75 }}>
               {card.desc}
             </p>
-          </div>
+          </a>
         ))}
       </div>
 
