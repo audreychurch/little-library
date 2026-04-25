@@ -77,7 +77,7 @@ export default async function WhodunitPage() {
           const book = entry.books
           const rank = entry.manual_rank ?? entry.computed_rank
           return (
-            <div key={book?.id} style={{ display: "flex", gap: "1.25rem", padding: "1.5rem 0", borderBottom: "0.5px solid #E0DDD6" }}>
+            <a key={book?.id} href={`/books/${book?.id}`} style={{ display: "flex", gap: "1.25rem", padding: "1.5rem 0", borderBottom: "0.5px solid #E0DDD6", textDecoration: "none" }}>
 
               {/* Rank + cover */}
               <div style={{ flexShrink: 0, position: "relative" }}>
@@ -120,7 +120,7 @@ export default async function WhodunitPage() {
                   )}
                 </div>
               </div>
-            </div>
+         </a>
           )
         })}
       </div>
